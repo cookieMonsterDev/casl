@@ -36,6 +36,7 @@ jobs:
       - name: Publish packages
         env:
           RELEASE_DIST_TAG: ${{ github.ref_name == 'next' && 'next' || 'latest' }}
+          RELEASE_PUBLISH_BRANCH: ${{ github.ref_name }}
         run: |
           for p in $(echo '${{ needs.release.outputs.paths_released }}' | jq -r '.[]'); do
             pnpm -r --filter "./$p" release
