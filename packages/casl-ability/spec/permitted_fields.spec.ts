@@ -1,22 +1,23 @@
-import { defineAbility, Ability } from '../src'
+import { defineAbility, createMongoAbility } from '../src'
 import { permittedFieldsOf } from '../src/extra'
-import { Post } from './spec_helper'
+import { Post } from './fixtures'
 
-describe('permittedFieldsOf', () => {
+describe(permittedFieldsOf.name, () => {
   const defaultOptions = {
-    fieldsFrom: rule => rule.fields || ['title', 'description']
+    fieldsFrom: (rule: { fields?: string[] }) => rule.fields || ['title', 'description']
   }
 
   it('returns an empty array for `Ability` with empty rules', () => {
-    const ability = new Ability()
-    expect(permittedFieldsOf(ability, 'read', 'Post', defaultOptions)).to.be.empty
+    const ability = createMongoAbility([])
+
+    expect(permittedFieldsOf(ability, 'read', 'Post', defaultOptions)).toEqual([])
   })
 
   it('returns all fields if none of rules specify fields', () => {
     const ability = defineAbility(can => can('read', 'Post'))
     const fields = permittedFieldsOf(ability, 'read', 'Post', defaultOptions)
 
-    expect(fields).to.deep.equal(['title', 'description'])
+    expect(fields).toEqual(['title', 'description'])
   })
 
   it('returns a unique array of fields if there are duplicated fields across fields', () => {
@@ -26,8 +27,8 @@ describe('permittedFieldsOf', () => {
     })
     const fields = permittedFieldsOf(ability, 'read', 'Post', defaultOptions)
 
-    expect(fields).to.have.length(2)
-    expect(fields).to.have.all.members(['title', 'description'])
+    expect(fields).toHaveLength(2)
+    expect(fields).toEqual(expect.arrayContaining(['title', 'description']))
   })
 
   it('returns unique fields for array which contains direct and inverted rules', () => {
@@ -37,42 +38,44 @@ describe('permittedFieldsOf', () => {
     })
     const fields = permittedFieldsOf(ability, 'read', 'Post', defaultOptions)
 
-    expect(fields).to.have.length(1)
-    expect(fields).to.have.all.members(['title'])
+    expect(fields).toHaveLength(1)
+    expect(fields).toEqual(['title'])
   })
 
   it('allows to provide an option `fieldsFrom` which extract fields from rule', () => {
     const ability = defineAbility(can => can('read', 'Post'))
     const fields = permittedFieldsOf(ability, 'read', 'Post', {
-      fieldsFrom: rule => rule.fields || ['title']
+      fieldsFrom: (rule) => rule.fields || ['title']
     })
 
-    expect(fields).to.deep.equal(['title'])
+    expect(fields).toEqual(['title'])
   })
 
   describe('when `subject` is an instance', () => {
-    let ability
+    it('allows to return fields for specific instance', () => {
+      const { ability } = setup()
+      const post = new Post({ title: 'does not match conditions' })
+      const fields = permittedFieldsOf(ability, 'read', post, defaultOptions)
 
-    beforeEach(() => {
-      ability = defineAbility((can, cannot) => {
+      expect(fields).toEqual(['title'])
+    })
+
+    it('allows to return fields for subject instance which matches specified rule conditions', () => {
+      const { ability } = setup()
+      const post = new Post({ id: 1, title: 'matches conditions' })
+      const fields = permittedFieldsOf(ability, 'read', post, defaultOptions)
+
+      expect(fields).toEqual(['title', 'description'])
+    })
+
+    function setup() {
+      const ability = defineAbility((can, cannot) => {
         can('read', 'Post', ['title'])
         can('read', 'Post', ['title', 'description'], { id: 1 })
         cannot('read', 'Post', ['description'], { private: true })
       })
-    })
 
-    it('allows to return fields for specific instance', () => {
-      const post = new Post({ title: 'does not match conditions' })
-      const fields = permittedFieldsOf(ability, 'read', post, defaultOptions)
-
-      expect(fields).to.deep.equal(['title'])
-    })
-
-    it('allows to return fields for subject instance which matches specified rule conditions', () => {
-      const post = new Post({ id: 1, title: 'matches conditions' })
-      const fields = permittedFieldsOf(ability, 'read', post, defaultOptions)
-
-      expect(fields).to.deep.equal(['title', 'description'])
-    })
+      return { ability }
+    }
   })
 })
