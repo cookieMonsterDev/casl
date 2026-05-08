@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "node",
+  "separate-pull-requests": false,
+  "tag-separator": "@",
+  "include-component-in-tag": true,
+  "include-v-in-tag": false,
+  "changelog-sections": [
+    { "type": "feat", "section": "Features" },
+    { "type": "fix", "section": "Bug Fixes" },
+    { "type": "deps", "section": "Dependencies" },
+    { "type": "refactor", "section": "Code Refactoring" }
+  ],
+  "packages": {
+    "packages/casl-ability": {
+      "package-name": "@casl/ability",
+      "component": "@casl/ability",
+      "changelog-path": "CHANGELOG.md",
+      "prerelease-type": "rc"
+    },
+    "packages/casl-angular": {
+      "package-name": "@casl/angular",
+      "component": "@casl/angular",
+      "changelog-path": "CHANGELOG.md",
+      "prerelease-type": "rc"
+    },
+    "packages/casl-aurelia": {
+      "package-name": "@casl/aurelia",
+      "component": "@casl/aurelia",
+      "changelog-path": "CHANGELOG.md",
+      "prerelease-type": "rc"
+    },
+    "packages/casl-mongoose": {
+      "package-name": "@casl/mongoose",
+      "component": "@casl/mongoose",
+      "changelog-path": "CHANGELOG.md",
+      "prerelease-type": "rc"
+    },
+    "packages/casl-prisma": {
+      "package-name": "@casl/prisma",
+      "component": "@casl/prisma",
+      "changelog-path": "CHANGELOG.md",
+      "prerelease-type": "rc"
+    },
+    "packages/casl-react": {
+      "package-name": "@casl/react",
+      "component": "@casl/react",
+      "changelog-path": "CHANGELOG.md",
+      "prerelease-type": "rc"
+    },
+    "packages/casl-vue": {
+      "package-name": "@casl/vue",
+      "component": "@casl/vue",
+      "changelog-path": "CHANGELOG.md",
+      "prerelease-type": "rc"
+    }
+  },
+  "versioning": "prerelease",
+  "prerelease": true,
+  "prerelease-type": "rc"
+}
