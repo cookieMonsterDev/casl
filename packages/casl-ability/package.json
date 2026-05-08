@@ -32,7 +32,7 @@
     "lint": "dx eslint src/ spec/",
     "test": "dx jest",
     "release.prepare": "npm run lint && npm test && NODE_ENV=production npm run build",
-    "release": "npm run release.prepare && pnpm publish --dry-run --no-git-checks"
+    "release": "npm run release.prepare && pnpm publish --tag \"$RELEASE_DIST_TAG\""
   },
   "keywords": [
     "permissions",
