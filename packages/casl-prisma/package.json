@@ -29,7 +29,7 @@
     "build": "npm run prisma.prepare && npm run build.prepare && dx tsdown",
     "lint": "dx eslint src/ spec/",
     "test": "dx jest",
-    "release.prepare": "npm run lint && npm test && NODE_ENV=production npm run build",
+    "release.prepare": "npm run lint && NODE_ENV=production npm run build && npm test",
     "release": "npm run release.prepare && pnpm publish --tag \"$RELEASE_DIST_TAG\" --publish-branch \"$RELEASE_PUBLISH_BRANCH\"",
     "prisma.prepare": "prisma generate && prisma migrate dev"
   },
