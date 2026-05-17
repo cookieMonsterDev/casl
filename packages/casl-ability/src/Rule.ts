@@ -86,11 +86,12 @@ export class Rule<A extends Abilities, C> {
     if (!object || isSubjectType(object)) {
       if (!this.inverted) return true;
       const matches = this._conditionsMatcher();
+      if (!matches) return false;
       return matches.matchesAll === true || !!matches.ast && isMatchesAll(matches.ast);
     }
 
     const matches = this._conditionsMatcher();
-    return matches(object as Record<string, unknown>);
+    return matches ? matches(object as Record<string, unknown>) : false;
   }
 
   matchesField(field: string | undefined): boolean {
@@ -108,7 +109,7 @@ export class Rule<A extends Abilities, C> {
       this._matchField = this._options.fieldMatcher!(this.fields);
     }
 
-    return this._matchField(field);
+    return this._matchField ? this._matchField(field) : false;
   }
 }
 
