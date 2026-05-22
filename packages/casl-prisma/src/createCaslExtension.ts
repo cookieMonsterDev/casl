@@ -1,4 +1,4 @@
-import { Prisma } from '@prisma/client';
+import { Prisma } from '@prisma/client/extension';
 
 /**
  * This is needed because Prisma doesn't reliably mock empty OR condition:
