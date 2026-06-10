@@ -49,12 +49,12 @@
   "author": "Sergii Stotskyi <sergiy.stotskiy@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@casl/dx": "workspace:^1.0.0",
+    "@casl/dx": "workspace:^",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.0.0",
-    "@ucast/js": "^4.0.0",
-    "chai": "^4.1.0",
-    "chai-spies": "^1.0.0",
+    "@types/node": "^24.12.2",
+    "@ucast/js": "^4.0.1",
+    "chai": "^4.5.0",
+    "chai-spies": "^1.1.0",
     "expect-type": "^0.15.0"
   },
   "files": [

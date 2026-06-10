@@ -46,16 +46,16 @@
   },
   "devDependencies": {
     "@casl/ability": "workspace:*",
-    "@casl/dx": "workspace:^1.0.0",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/react": "^16.1.0",
+    "@casl/dx": "workspace:^",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
     "@types/jest": "^30.0.0",
-    "@types/node": "^24.0.0",
-    "@types/react": "^19.0.0",
-    "chai": "^4.1.0",
-    "chai-spies": "^1.0.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@types/node": "^24.12.2",
+    "@types/react": "^19.2.14",
+    "chai": "^4.5.0",
+    "chai-spies": "^1.1.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
   },
   "files": [
     "dist"

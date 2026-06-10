@@ -51,17 +51,17 @@
   },
   "devDependencies": {
     "@casl/ability": "workspace:*",
-    "@casl/dx": "workspace:^1.0.0",
-    "@prisma/adapter-better-sqlite3": "^7.7.0",
-    "@prisma/client": "^7.0.0",
+    "@casl/dx": "workspace:^",
+    "@prisma/adapter-better-sqlite3": "^7.8.0",
+    "@prisma/client": "^7.8.0",
     "@types/jest": "^30.0.0",
-    "prisma": "^7.0.0"
+    "prisma": "^7.8.0"
   },
   "files": [
     "dist"
   ],
   "dependencies": {
     "@ucast/core": "^2.0.0",
-    "@ucast/js": "^4.0.0"
+    "@ucast/js": "^4.0.1"
   }
 }
