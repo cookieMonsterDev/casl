@@ -16,10 +16,10 @@
     "url": "https://github.com/stalniy/casl.git",
     "directory": "packages/casl-vue"
   },
-  "homepage": "https://casl.js.org",
   "bugs": {
     "url": "https://github.com/stalniy/casl/issues"
   },
+  "homepage": "https://casl.js.org",
   "publishConfig": {
     "access": "public"
   },

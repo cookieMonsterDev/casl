@@ -20,6 +20,9 @@
     "url": "https://github.com/stalniy/casl.git",
     "directory": "packages/casl-prisma"
   },
+  "bugs": {
+    "url": "https://github.com/stalniy/casl/issues"
+  },
   "publishConfig": {
     "access": "public"
   },

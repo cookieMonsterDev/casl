@@ -16,6 +16,9 @@
     "url": "https://github.com/stalniy/casl.git",
     "directory": "packages/casl-react"
   },
+  "bugs": {
+    "url": "https://github.com/stalniy/casl/issues"
+  },
   "homepage": "https://casl.js.org",
   "publishConfig": {
     "access": "public"

@@ -15,6 +15,9 @@
     "url": "https://github.com/stalniy/casl.git",
     "directory": "packages/casl-mongoose"
   },
+  "bugs": {
+    "url": "https://github.com/stalniy/casl/issues"
+  },
   "publishConfig": {
     "access": "public"
   },
