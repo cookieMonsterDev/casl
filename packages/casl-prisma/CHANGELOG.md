@@ -9,6 +9,52 @@ All notable changes to this project will be documented in this file.
 
 * adds prisma7 support ([#1087](https://github.com/stalniy/casl/issues/1087)) ([8e818c2](https://github.com/stalniy/casl/commit/8e818c297592eea78f038dbabd9d03fef36fd57e))
 
+## [3.0.0](https://github.com/cookieMonsterDev/casl/compare/@casl/prisma@2.0.1...@casl/prisma@3.0.0) (2026-06-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* migrates to @casl/ability 7.x, `PureAbility` is no longer available and `accessibleBy` produces a different shape
+* `accessibleBy` no longer throws `ForbiddenError` and it's required to add `caslExtension` to Prisma Client
+* **prisma:** The `createPrismaAbilityFor` factory has been removed. `createPrismaAbility` is now a standalone generic function rather than a pre-bound factory.
+
+### Features
+
+* adds prisma7 support ([#1087](https://github.com/cookieMonsterDev/casl/issues/1087)) ([8e818c2](https://github.com/cookieMonsterDev/casl/commit/8e818c297592eea78f038dbabd9d03fef36fd57e))
+* adds support for custom generate prisma client ([832a50e](https://github.com/cookieMonsterDev/casl/commit/832a50e532afcf32c19f3696958d25d300bd08bd))
+* exports types to support TS ES6 modules ([c818b1a](https://github.com/cookieMonsterDev/casl/commit/c818b1a84cee6dc2ad78be72db4d1afe0f95b3f1)), closes [#668](https://github.com/cookieMonsterDev/casl/issues/668)
+* exposes `WhereInput` type and removes restriction on Model inside PrismaQuery ([f7a26d4](https://github.com/cookieMonsterDev/casl/commit/f7a26d424c96c4e0bd99c44952f60ef37f8fd882))
+* extends createPrisma types to accept AppAbility as generic type ([4ac2531](https://github.com/cookieMonsterDev/casl/commit/4ac25319ad08c5a1731706a0b7be6eae2a46005f))
+* **prisma:** Add 'isSet' filter to prisma filters ([#967](https://github.com/cookieMonsterDev/casl/issues/967)) ([256a2fe](https://github.com/cookieMonsterDev/casl/commit/256a2fe170b3dcad9869cc2b17d895fdb1b8e6dc))
+
+
+### Bug Fixes
+
+* `every` returns true on empty arrays to match Prisma vacuous truth semantics ([#1180](https://github.com/cookieMonsterDev/casl/issues/1180)) ([d881684](https://github.com/cookieMonsterDev/casl/commit/d88168479e43a8fecf24908050cb5eef376e32bd))
+* add 'all' to AbilityTuple ([#615](https://github.com/cookieMonsterDev/casl/issues/615)) ([70025ac](https://github.com/cookieMonsterDev/casl/commit/70025ac13a8acdf4093d5379961198daf26e9007))
+* adds "bugs" metadata to all packages ([1f6c4ba](https://github.com/cookieMonsterDev/casl/commit/1f6c4ba546e24fed876d7d407a958d8886d6f5de))
+* another attempt to fix .mjs local imports ([890c334](https://github.com/cookieMonsterDev/casl/commit/890c3341acf52e8b1c55eb6450841d02133226e1))
+* **deps:** update dependency @types/jest to v30 ([#1133](https://github.com/cookieMonsterDev/casl/issues/1133)) ([12c59ce](https://github.com/cookieMonsterDev/casl/commit/12c59ce3ab717c49b980e2b3b7091c9e88e4d7e7))
+* **deps:** upgrades @ucast/* to latest version ([#1218](https://github.com/cookieMonsterDev/casl/issues/1218)) ([22b00ff](https://github.com/cookieMonsterDev/casl/commit/22b00ffa32b2a8106ceffd14dce087e6825c17b5))
+* es6m build now contains .mjs extension for local imports/exports ([d233c9f](https://github.com/cookieMonsterDev/casl/commit/d233c9fecdb762b2b454d8e9375805633d9e35fe))
+* export Model and Subjects as type ([#688](https://github.com/cookieMonsterDev/casl/issues/688)) ([b0e76e3](https://github.com/cookieMonsterDev/casl/commit/b0e76e3e667ea639ca94101ce0930bbd784fd60f))
+* expose PrismaAbility type ([3aa325f](https://github.com/cookieMonsterDev/casl/commit/3aa325fc99af4173156bb449e385d42e8b5c6a14))
+* improved AbilityTuple ([#616](https://github.com/cookieMonsterDev/casl/issues/616)) ([270446f](https://github.com/cookieMonsterDev/casl/commit/270446fe7b68bb00a6546d04d6bee88a816a00ff))
+* makes sure `WhereInput<T>` resolves to corresponding Prisma model ([9288dcb](https://github.com/cookieMonsterDev/casl/commit/9288dcb9a6eb91671b23c38454e189cd561af235)), closes [#613](https://github.com/cookieMonsterDev/casl/issues/613)
+* makes sure PrismaAbility support per subject actions type ([5db9a37](https://github.com/cookieMonsterDev/casl/commit/5db9a3758f444ac40b957f5bb20821d43a830b8e)), closes [#675](https://github.com/cookieMonsterDev/casl/issues/675)
+* **prisma:** allpows to specify not all models inside Subjects helper ([fb9cf8d](https://github.com/cookieMonsterDev/casl/commit/fb9cf8d3b41f2030e36d2e774731da3540cca55e))
+* update accessibleBy function of casl/prisma to autocomplete action names ([#965](https://github.com/cookieMonsterDev/casl/issues/965)) ([37c6b54](https://github.com/cookieMonsterDev/casl/commit/37c6b543172f618404617de05486f141dcba0ddb))
+* update prisma to version 4 ([#638](https://github.com/cookieMonsterDev/casl/issues/638)) ([d5abdf1](https://github.com/cookieMonsterDev/casl/commit/d5abdf1c82b58c8515d2be48d2cf798add5b1e13))
+* uses @prisma/client/extension for extension definition ([77ec57c](https://github.com/cookieMonsterDev/casl/commit/77ec57c78b185250ea3c85b6b2a541f1f861ed91))
+
+
+### Code Refactoring
+
+* changes accessibleBy to infer return type from Ability instance ([#1056](https://github.com/cookieMonsterDev/casl/issues/1056)) ([06fa425](https://github.com/cookieMonsterDev/casl/commit/06fa4250dd720fafe130643f29de174f7114997f))
+* migrates to @casl/ability 7.x ([#1216](https://github.com/cookieMonsterDev/casl/issues/1216)) ([df9d5b6](https://github.com/cookieMonsterDev/casl/commit/df9d5b62dcbcada20be8befc2aa6c10270b923bf))
+* **prisma:** simplify createPrismaAbility and remove reliance on generated types ([#1195](https://github.com/cookieMonsterDev/casl/issues/1195)) ([916e7ba](https://github.com/cookieMonsterDev/casl/commit/916e7baabe37f9260bb4d883d4f5cb4deb0c2e9a))
+* stops throwing ForbiddenError when casl does not have rules for action/subject pair ([#1196](https://github.com/cookieMonsterDev/casl/issues/1196)) ([ee850e8](https://github.com/cookieMonsterDev/casl/commit/ee850e8a566c106778217f1b7d861061db2844c3))
+
 ## [2.0.1](https://github.com/stalniy/casl/compare/@casl/prisma@2.0.0...@casl/prisma@2.0.1) (2026-05-22)
 
 
