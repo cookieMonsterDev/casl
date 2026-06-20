@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.0](https://github.com/cookieMonsterDev/casl/compare/@casl/vue@3.0.0...@casl/vue@4.0.0) (2026-06-20)
+
+
+### ⚠ BREAKING CHANGES
+
+* converts module to ESM
+
+### Features
+
+* exports types to support TS ES6 modules ([c818b1a](https://github.com/cookieMonsterDev/casl/commit/c818b1a84cee6dc2ad78be72db4d1afe0f95b3f1)), closes [#668](https://github.com/cookieMonsterDev/casl/issues/668)
+* exposes rule.reason in &lt;Can&gt; computed slot and updates supported version of @casl/ability ([#1214](https://github.com/cookieMonsterDev/casl/issues/1214)) ([cabbdd8](https://github.com/cookieMonsterDev/casl/commit/cabbdd8ef76c71888fd24f5c2aa3a49f4225790c))
+
+
+### Bug Fixes
+
+* add casl vue bugs metadata ([#1235](https://github.com/cookieMonsterDev/casl/issues/1235)) ([4626cfa](https://github.com/cookieMonsterDev/casl/commit/4626cfae877e83637172279e4e799aab98f0fc05))
+* adds "bugs" metadata to all packages ([1f6c4ba](https://github.com/cookieMonsterDev/casl/commit/1f6c4ba546e24fed876d7d407a958d8886d6f5de))
+* **deps:** update dependency @types/jest to v30 ([#1133](https://github.com/cookieMonsterDev/casl/issues/1133)) ([12c59ce](https://github.com/cookieMonsterDev/casl/commit/12c59ce3ab717c49b980e2b3b7091c9e88e4d7e7))
+* **deps:** upgrades @ucast/* to latest version ([#1218](https://github.com/cookieMonsterDev/casl/issues/1218)) ([22b00ff](https://github.com/cookieMonsterDev/casl/commit/22b00ffa32b2a8106ceffd14dce087e6825c17b5))
+* fixes type for ABILITY_TOKEN in casl-vue ([#879](https://github.com/cookieMonsterDev/casl/issues/879)) ([886aeb3](https://github.com/cookieMonsterDev/casl/commit/886aeb3d699466d83185c950abba936e1e7d1d24))
+* force release @casl/vue ([#1114](https://github.com/cookieMonsterDev/casl/issues/1114)) ([2acb2de](https://github.com/cookieMonsterDev/casl/commit/2acb2de28813eac30c9c5801d6481e81dc445d2c))
+* force release @casl/vue ([#1118](https://github.com/cookieMonsterDev/casl/issues/1118)) ([a8ddcbf](https://github.com/cookieMonsterDev/casl/commit/a8ddcbf5727a6ef3ef8b45e703a8b89f9e60c544))
+* force release of @casl/vue ([#1117](https://github.com/cookieMonsterDev/casl/issues/1117)) ([4c19fac](https://github.com/cookieMonsterDev/casl/commit/4c19fac4d12d50fbf96d608bcc8ac61c95ce8cb4))
+* force vue release ([#1120](https://github.com/cookieMonsterDev/casl/issues/1120)) ([60e89ba](https://github.com/cookieMonsterDev/casl/commit/60e89bab1f50e6296b0654eb1ad018fd56f2b10c))
+* handles vue props aliases using "undefined" instead of "in" ([#712](https://github.com/cookieMonsterDev/casl/issues/712)) ([3d85baa](https://github.com/cookieMonsterDev/casl/commit/3d85baa5d594734cafe79929634f344a123bf905))
+
+
+### Code Refactoring
+
+* gets rid of deprecated Ability type and replaces it with MongoAbility ([bef46d1](https://github.com/cookieMonsterDev/casl/commit/bef46d1a7d9b87ee99c342ae12559f2294c7f762))
+* gets rid of deprecated Ability type and replaces it with MongoAbility in vue package ([#951](https://github.com/cookieMonsterDev/casl/issues/951)) ([bef46d1](https://github.com/cookieMonsterDev/casl/commit/bef46d1a7d9b87ee99c342ae12559f2294c7f762))
+
 ## [3.0.0](https://github.com/stalniy/casl/compare/@casl/vue@2.2.6...@casl/vue@3.0.0) (2026-05-21)
 
 
